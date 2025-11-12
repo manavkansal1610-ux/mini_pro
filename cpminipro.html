@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> BOOKPAGLU | A Book Blog Preview</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; 
+        }
+        
+        .card-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card-shadow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .selected-link {
+            font-weight: 800; 
+            color: #1d4ed8; 
+        }   
+    </style>
+</head>
+<body class="min-h-screen antialiased text-gray-800">
+
+   
+    <header class="bg-white card-shadow sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#home" class="text-3xl font-bold tracking-tight text-gray-900 hover:text-blue-600 transition">BOOKPAGLU</a>
+            <nav class="space-x-4 flex items-center">
+                <a href="#home" class="text-gray-600 hover:text-blue-600 font-medium transition duration-150 text-sm sm:text-base">Home</a>
+                <a href="#about" class="text-gray-600 hover:text-blue-600 font-medium transition duration-150 text-sm sm:text-base">About</a>
+                <a href="#" class="text-white bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg font-semibold transition duration-150 card-shadow text-sm">Contribute</a>
+            </nav>
+        </div>
+    </header>
+
+    
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 lg:grid-cols-4 gap-10" id="home">
+
+        
+        <aside class="lg:col-span-1 bg-white p-6 rounded-xl card-shadow h-fit">
+            <h3 class="text-xl font-bold mb-4 border-b pb-2 text-blue-600">Browse Genres</h3>
+            <ul class="space-y-3" id="genre-list">
+                
+                <li><a href="#genre-Mystery/Thriller" class="genre-link text-gray-700 hover:text-blue-500 transition duration-150 text-lg font-medium">Mystery/Thriller (5)</a></li>
+                <li><a href="#genre-Romance" class="genre-link text-gray-700 hover:text-blue-500 transition duration-150 text-lg font-medium">Romance (5)</a></li>
+                <li><a href="#genre-Science Fiction" class="genre-link text-gray-700 hover:text-blue-500 transition duration-150 text-lg font-medium">Science Fiction (5)</a></li>
+                <li><a href="#genre-Historical Fiction" class="genre-link text-gray-700 hover:text-blue-500 transition duration-150 text-lg font-medium">Historical Fiction (5)</a></li>
+                <li><a href="#genre-Self-Help" class="genre-link text-gray-700 hover:text-blue-500 transition duration-150 text-lg font-medium"> Self-Help(5)</a> </li>
+            </ul>
+
+            <h3 class="text-xl font-bold mt-8 mb-4 border-b pb-2 text-blue-600">Search</h3>
+            <div class="relative">
+                <input type="text" placeholder="Search posts..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                
+                <svg class="absolute right-3 top-3 h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </div>
+        </aside>
+
+       
+        <section class="lg:col-span-3">
+            
+          
+            <div id="dynamic-content-area" class="mb-8 p-6 rounded-xl bg-blue-50 border-l-4 border-blue-400 hidden flex flex-col items-center text-center">
+                
+                <img id="content-image" src="" alt="Book Cover" class="w-40 h-60 object-cover rounded-lg shadow-lg mb-4 hidden">
+                
+                <h3 id="content-title" class="text-2xl font-bold mb-3 text-blue-700"></h3>
+                <p id="content-text" class="text-gray-700 max-w-2xl"></p>
+                
+            </div>
+            
+            <h2 id="main-section-title" class="text-4xl font-extrabold mb-8 text-gray-900 border-b pb-3">Latest Reviews & Essays</h2>
+            
+            
+            <div id="post-list-container">
+               
+                <article class="default-post-card bg-white p-6 rounded-xl mb-8 card-shadow flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/3 flex-shrink-0">
+                        <img src="https://placehold.co/300x450/4f46e5/ffffff?text=Fictional+Cover" 
+                             alt="The Unseen Thread book cover" 
+                             class="w-full h-auto rounded-lg object-cover shadow-md">
+                    </div>
+                    <div class="md:w-2/3">
+                        <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 mb-2">Fiction</span>
+                        <h3 class="text-3xl font-bold mb-3 hover:text-blue-600 transition duration-150">
+                            <a href="#post-1">The Unseen Thread: A Deep Dive Review</a>
+                        </h3>
+                        <p class="text-sm text-gray-500 mb-4">By <span class="font-semibold">Alex P.</span> on October 25, 2025</p>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-4">A compelling novel exploring parallel realities and regretted decisions, blending philosophical depth with truly engaging character development.</p>
+                        <a href="#post-1" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center">
+                            Read Full Review
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </article>
+
+                
+                <article class="default-post-card bg-white p-6 rounded-xl mb-8 card-shadow">
+                    <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-emerald-100 text-emerald-800 mb-2">Science</span>
+                    <h3 class="text-2xl font-bold mb-2 hover:text-blue-600 transition duration-150">
+                        <a href="#post-2">Understanding the Cosmic Web</a>
+                    </h3>
+                    <p class="text-sm text-gray-500 mb-3">By <span class="font-semibold">J. Stellar</span> on October 18, 2025</p>
+                    <p class="text-gray-700">An accessible guide to astrophysics, demystifying the large-scale structure of the universe for the curious, non-specialist reader.</p>
+                    <a href="#post-2" class="mt-3 text-blue-600 hover:text-blue-800 font-semibold block">Read More &rarr;</a>
+                </article>
+
+                
+                <article class="default-post-card bg-white p-6 rounded-xl mb-8 card-shadow">
+                    <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800 mb-2">Classic</span>
+                    <h3 class="text-2xl font-bold mb-2 hover:text-blue-600 transition duration-150">
+                        <a href="#post-3"Frankenstein</a></a> 
+                    </h3>
+                    <p class="text-sm text-gray-500 mb-3">By <span class="font-semibold">Mary Shelley</span> on August 30, 2025</p>
+                    <p class="text-gray-700"> Guillermo del Toro's Frankenstein is a visually stunning and empathetic take on the classic tale, focusing on the relationship between the creature and creator and the theme of compassion over horror. While praised for its gorgeous production design, beautiful cinematography, and powerful performances, some critics note that its tone shifts can feel jarring, though many still find the result a moving and satisfying experience that resonates with themes of life, morality, and responsibility. </p>
+                    <a href="#post-3" class="mt-3 text-blue-600 hover:text-blue-800 font-semibold block">Read More &rarr;</a>
+                </article>
+            </div>
+            
+           
+            <div id="load-more-button" class="text-center mt-6">
+                <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full transition duration-150 card-shadow">
+                    Load Older Posts
+                </button>
+            </div>
+        </section>
+        
+    </main>
+
+    
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 hidden" id="post-1">
+        <a href="#home" class="text-blue-600 hover:text-blue-800 mb-6 inline-flex items-center">&larr; Back to all posts</a>
+        <article class="bg-white p-8 rounded-xl card-shadow">
+            <span class="inline-block px-4 py-1 text-sm font-semibold rounded-full bg-blue-100 text-blue-800 mb-4">Fiction</span>
+            <h1 class="text-5xl font-extrabold mb-4 text-gray-900">The Unseen Thread: A Deep Dive Review</h1>
+            <p class="text-lg text-gray-500 mb-8">By <span class="font-semibold">Alex P.</span> on October 25, 2025</p>
+            
+            <img src="https://placehold.co/800x500/4f46e5/ffffff?text=Book+Cover+Art" 
+                 alt="Detailed image for the post" 
+                 class="w-full h-auto rounded-lg object-cover mb-8 shadow-md">
+
+            <div class="prose max-w-none text-gray-700 leading-relaxed space-y-6">
+                <p>The Unseen Thread is a novel that immediately grabs you with its central premise: what if every decision you regretted could be revisited? The author, J.M. River, handles this complex concept with a surprising lightness, blending philosophical depth with truly engaging character development.</p>
+                <p>The pacing is excellent, balancing introspective moments with high-stakes action sequences. We follow the protagonist, Elara, through three different realities, each showcasing a starkly different life trajectory based on a single pivotal choice made a decade earlier. What sets this book apart is not just the sci-fi element, but the emotional truth River imbues in each iteration of Elara's life.</p>
+                <h2 class="text-3xl font-bold pt-4">Character & Theme</h2>
+                <p>The core theme revolves around the nature of contentment. Does having every choice lead to happiness, or is it the acceptance of a single path that provides peace? This book skillfully argues the latter, providing a satisfying, albeit bittersweet, resolution. A must-read for fans of psychological sci-fi.</p>
+            </div>
+            <div class="mt-8 pt-6 border-t border-gray-200">
+                <p class="text-sm text-gray-600">— This is a simulated single post detail page content.</p>
+            </div>
+        </article>
+    </section>
+
+
+    <footer class="bg-gray-800 mt-12 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+            <p>&copy; 2025 BookPaglu. All rights reserved.</p>
+            <p class="text-sm mt-2">Built with Flask and designed with Tailwind CSS.</p>
+        </div>
+    </footer>
+
+    
+    <script>
+       
+        const blogData = {
+            "Mystery/Thriller": {
+                genreTitle: "Mystery/Thriller",
+                genreText: "Fictional mystery books are for anyone who enjoys suspense, problem-solving, and uncovering secrets — from kids to adults. They're written for readers who love to think, question, and piece together clues before the characters (or detectives) do.",
+                books: [
+                   
+                    { title: "Not Quite dead yet ", summary: "Not Quite Dead Yet is a propulsive, emotionally charged mystery that uses the ticking clock of impending death to strip away pretense and force its characters—and readers—to confront the truths we most fear. Holly Jackson reimagines the classic whodunit as a race against mortality, blending sharp psychological insight with a deeply human story of regret, love, and the longing for meaning. The novel interrogates the corrosive effects of secrets, the ways families wound and protect each other, and the desperate need to matter before time runs out.Jet's journey is both a gripping investigation and a meditation on what it means to live fully: to choose agency, to seek truth, and to love without guarantees. The final twist—that the killer is the trusted neighbor, acting out of twisted love and resentment—underscores the dangers of unexamined loyalty and the generational cycles of harm. Ultimately, the book's lesson is that life's meaning is found not in grand achievements, but in the small, honest moments of connection, courage, and forgiveness. In her last days, Jet finds what she was searching for all along: not just the answer to her murder, but the freedom to live—and die—on her own terms.", coverImage: "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/a489043d-d3a1-5d1a-b438-f8999ae2958e/95a24361-a69c-593e-af7d-31415d4d9ab5.jpg" },
+                    { title: "The Silent Patient", summary: "The Silent Patient is a psychological thriller about artist Alicia Berenson, who is convicted of murdering her husband but has remained completely silent since the crime. Theo Faber, a psychotherapist intrigued by the case, takes a job at the psychiatric facility where Alicia is held in an attempt to get her to talk and unravel the mystery behind the murder. The narrative unfolds through Theo's perspective and Alicia's diary entries, revealing a complex story of trauma, obsession, and deception that blurs the lines between therapist and patient.", coverImage: "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/568f5f37-63b7-5ae0-ac5e-37b4e7c536fd/a819177d-cb27-503a-858c-ef34dafcda91.jpg" },
+                    { title: "Gone Girl", summary: "Gone Girl is a psychological thriller about a wife's mysterious disappearance on their fifth anniversary, which makes her husband, Nick, the prime suspect. The story is told from alternating perspectives, revealing the couple's troubled marriage through Nick's present-day narrative and Amy's diary entries from the past. The investigation exposes the dark and complex reality behind their seemingly perfect life, with the mystery ultimately leading to a shocking revelation about Amy's true intentions. ", coverImage: "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/891c497d-ff39-553d-af1f-41cdaeae3e43/983bc6b3-b753-5b2c-a3f7-191f4e0c54c7.jpg" }
+                    ,{title:"The Girl in Room 105",summary:"The Girl in Room 105 is about Keshav, a man still in love with his ex-girlfriend Zara, who finds her murdered after she texts him to meet her in her hostel room on her birthday. Keshav, with the help of his friend Saurabh, launches an investigation to uncover the truth behind her death, delving into themes of love, obsession, and societal issues. The book explores the dark side of obsession and leads Keshav on a journey filled with mystery, twists, and eventually the discovery that Zara's fiancé, Raghu, was the killer.",coverImage:"https://images.meesho.com/images/ratings_reviews/6520014447/6554076786/6520014447_6554076786_3ce901cd81199.jpeg"},
+                    ,{title:"The Secret of Secrets",summary:"The Secret of Secrets is a 2025 Robert Langdon novel by Dan Brown where the symbology professor races to find his partner, Katherine Solomon, who vanishes in Prague after a brutal murder. Solomon, a noetic scientist, was on the verge of a discovery that challenges the nature of consciousness, attracting the attention of a dangerous conspiracy. Langdon must navigate Prague's ancient and modern mysteries, facing off against a mystic assassin and a powerful organization in a thrilling race against time, as described on Dan Brown Official Website.",coverImage: "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/da2cd477-4731-578e-ac91-25b17934ca86/07b67bc7-8e6a-5135-8cf8-5cf8722ae536.jpg"}
+                ]
+            },
+            "Romance": {
+                genreTitle: "Romance",
+                genreText: "Soft romance novels — sometimes called sweet romance or clean romance — are for readers who enjoy love stories filled with emotion, warmth, and tenderness, but without heavy drama or explicit content.They focus on feelings, relationships, and personal growth rather than passion or heartbreak.",
+                books: [
+                    
+                    { title: "Wonder", summary: "Wonder is a novel by R.J. Palacio about ten-year-old August Auggie Pullman, a boy born with a significant facial deformity who attends mainstream school for the first time in the fifth grade. The story, which is told from multiple perspectives, follows Auggie as he navigates friendships, bullying, and the challenges of being different, while inspiring those around him to embrace kindness, acceptance, and courage", coverImage: "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/864fc6ee-05ed-5549-aa3a-f8b095eeede7/949b23ec-f599-5fdc-a86a-e7b7681036c8.jpg" },
+                    {title:"Anne of Green Gables",summary:"Anne of Green Gables is a classic novel by Lucy Maud Montgomery about an imaginative orphan, Anne Shirley, who is mistakenly sent to live with elderly siblings, Matthew and Marilla Cuthbert, on their Prince Edward Island farm. The story follows Anne's journey as she grows up, forms deep friendships, and navigates life's challenges with her unique spirit, eventually winning over the Cuthberts and finding her home.",coverImage:"https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/6fc08b04-f6fe-52b7-bdbd-2d1e89a28f74/19fff8e5-c8d2-5bcc-b34c-43e2ef28b80a.jpg"}, 
+                    {title:"The Fault in Our Stars",summary:"The Fault in Our Stars is a love story about two teenagers with cancer, Hazel Grace Lancaster and Augustus Waters, who meet at a support group. They bond over their shared experiences, including a love for the novel An Imperial Affliction, and fall in love. Their relationship is marked by their witty dialogues, intellectual conversations, and their desire for a normal teenage life despite their illnesses. A major plot point involves their trip to Amsterdam to meet the author of An Imperial Affliction, which leads to the discovery of Augustus's cancer's return.",coverImage:"https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/d0e6e11c-5091-5b71-9573-d1f33bf53edf/2fdf7415-58ca-5674-a205-fcefffcee2a0.jpg"},
+                    {title:"Everything everything",summary:"Everything, Everything is about Maddy Whittier, an 18-year-old who has lived her entire life inside her home due to a severe immune deficiency (SCID), which makes her allergic to the world. Her life of isolation is disrupted when a new family moves in next door, and she begins a relationship with the boy next door, Olly, first online and then through secret, risky meetings. The story follows their forbidden romance as Maddy yearns to experience life outside her sterile environment.",coverImage:"https://www.madrasshoppe.com/62742-large_default/everything-everything-yoon-nicola.jpg"},
+                    {title:"Flipped",summary:"Flipped is a coming-of-age story about Juli Baker and Bryce Loski, told from both of their alternating perspectives. The novel (and film adaptation) follows their relationship over several years, starting from second grade, as their initial feelings for each other ,flip and evolve. Juli is instantly smitten, while Bryce tries to avoid her, but eventually, their perspectives shift, and Bryce begins to see Juli differently, just as she starts to realize he isn't the perfect boy she once thought.",coverImage:"https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/8869fd53-03ac-5b07-a6e5-ed70f6c69e99/f1463100-01cd-556f-b839-1b494974cd2c.jpg"}
+                ]
+            },
+            "Science Fiction": {
+                genreTitle: "Science Fiction",
+                genreText: "Science fiction books are for anyone who loves to dream, explore, and question the world.They're not just about aliens or spaceships — they're about human creativity, courage, and the endless possibilities of the future.",
+                books: [
+                    
+                    { title: "The Time Machine", summary:"The Time Machine by H.G. Wells is a novel about a Victorian scientist who builds a machine to travel through time and visits the year 802,701. There, he discovers humanity has diverged into two species: the childlike, surface-dwelling Eloi (descendants of the wealthy) and the monstrous, underground-dwelling Morlocks (descendants of the working class). The story is framed by the scientist recounting his adventures to skeptical friends, and he ultimately journeys even further into the future and is never seen again.", coverImage: "https://upload.wikimedia.org/wikipedia/commons/0/0a/The_Time_Machine_%28H._G._Wells%2C_William_Heinemann%2C_1895%29_title_page.jpg" },
+                    { title: "Frankenstein", summary: " Frankenstein is a gothic novel by Mary Shelley about Victor Frankenstein, a scientist who creates a sentient creature in an attempt to play God, but then abandons it in horror. The creature, shunned for its appearance, learns from humans but becomes vengeful after its creator's rejection. This leads the creature to murder Victor's loved ones, resulting in a tragic cycle of revenge that culminates in Victor's death in the Arctic and the creature's vow of suicide.", coverImage: "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/64172333-3562-597a-8f9a-fc82fa434140/224aae47-7069-54ce-91a5-f645a960b1af.jpg"},
+                    {title:"1984",summary:"George Orwell's 1984 is a dystopian novel about Winston Smith, who lives under the oppressive rule of the Party and its leader, Big Brother, in the totalitarian superstate of Oceania. Winston begins a secret affair with Julia to rebel against the Party's control over free thought, history, and individuality. They are eventually caught and taken to the Ministry of Love, where Winston is systematically tortured by O'Brien until he fully renounces his beliefs and loves Big Brother.",coverImage:"https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/078ac403-dc08-56d3-b232-ea284abd6a3b/b31e2c75-01c4-50e6-8260-576350c50ca0.jpg"},
+                    {title:"Dune",summary:"Dune is a science fiction novel by Frank Herbert about a young nobleman, Paul Atreides, who becomes a messianic leader on the desert planet Arrakis. His family, House Atreides, is forced to take control of Arrakis, the universe's only source of the valuable spice, melange, a substance vital for interstellar travel and consciousness-expanding abilities. After his family is betrayed by rivals House Harkonnen and the Padishah Emperor, Paul and his mother Jessica escape into the desert, where they are taken in by the native Fremen. The story follows Paul as he embraces his destiny, leads the Fremen, and seeks revenge, ultimately leading to a conflict that will change the universe.",coverImage:"https://images.bwbcovers.com/042/Dune-Herbert-Frank-9780425027066.jpg"},
+                    {title:"The Martian",summary:"The Martian by Andy Weir is a science fiction novel about astronaut Mark Watney, who is presumed dead and left behind on Mars after a storm. The story follows his resourceful struggle to survive alone on the planet by using his knowledge as a botanist and mechanical engineer to grow food, produce water, and ultimately find a way to signal Earth and await rescue. The novel is driven by Watney's ingenuity, humor, and resilience as he overcomes numerous scientific and engineering challenges to stay alive.",coverImage:"https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/a13a6563-ee1e-5834-986a-46293b5a548c/b370aea7-bd24-5b07-bb3c-9a066b429fbe.jpg"},
+                    
+                
+                ]
+            },
+            "Historical Fiction": {
+                genreTitle: "Historical Fiction",
+                genreText: "Books based on true historical events are for readers who want to feel connected to the real stories of humanity — our struggles, triumphs, and lessons through time.They're perfect for those who love learning, empathy, and discovering how the past continues to shape who we are today.",
+                books: [
+                    
+                    { title: "The Book Thief ", summary: "The Book Thief is a historical fiction novel by Markus Zusak set in Nazi Germany during World War II and narrated by Death. It follows the story of a young girl named Liesel Meminger, who is sent to live with foster parents and finds solace and a connection to others through stealing and reading books. The story highlights her relationship with her foster father, Hans, her best friend Rudy Steiner, and a Jewish man named Max Vandenberg whom her family hides in their basement. The narrative culminates in a devastating air raid that kills Hans, Rosa, and Rudy, but Liesel ultimately survives and is reunited with Max after the war.", coverImage: "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/016480f8-50ca-5d8d-af70-a608a17eb188/06921898-68c0-5ce0-82ea-a6c9a85977b2.jpg" },
+                    { title: "The Diary of a Young Girl", summary: "The Diary of a Young Girl is the diary of Anne Frank, a Jewish teenage girl who went into hiding in Amsterdam during World War 2. This diary describes her life in hiding for 2 years including her relationships, fears, and coming-of-age experiences. After their hiding place was discovered, the family was arrested and sent to concentration camps where Anne did not survive. Her father, Otto, was the sole survivor and later published her diary, which became a world-famous testament to hope and the human spirit during the Holocaust. ", coverImage: "https://covers.openlibrary.org/b/id/9272664-L.jpg" },
+                    { title: "Schindler's List", summary: "Schindler's List is a novel by Thomas Keneally based on the historical figure Oskar Schindler. Initially a member of the Nazi party who sought to profit from World War 2, Schindler evolves into a protector of over 1,100 Polish Jews. He uses his factory to employ them, transforming it into a safe haven where he risks his life and fortune to save them from the Holocaust's death camps. The plot culminates with Schindler compiling a list of his Jewish employees, saving them from extermination before the war ends and the Soviet army liberates the area. ", coverImage: "https://www.finlandiakirja.fi/media/catalog/product/cache/28ebde07709ed2fb49a9cbca4a68e9b1/p/w/pw_p_2091015_0.jpg"},
+                    { title: "The Nightingale", summary: "The Nightingale is a 2015 historical novel by Kristin Hannah about two sisters in German-occupied France during World War II, following their vastly different paths of survival and resistance. The story contrasts the passive resistance of the older sister, Vianne, who is forced to house a German soldier and protect her family, with the active heroism of the younger sister, Isabelle, who joins the French Resistance to help downed Allied airmen escape. ", coverImage: "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/fd078899-100f-5aed-a54d-86d1c48b98f2/db44a833-880d-52f3-9186-65d2c604f289.jpg"},
+                    { title: "The Tattoist of Auschwitz", summary: "The Tattooist of Auschwitz is a novel by Heather Morris based on the true story of Lale Sokolov, a Slovakian Jew who was imprisoned at the Auschwitz concentration camp in 1942. While working as the camp's tattooist, he falls in love with Gita Furman, a fellow prisoner he is tasked with tattooing. The book recounts their experiences surviving the horrors of Auschwitz, their eventual reunion after being separated, and their post-war life together in Melbourne, Australia. ", coverImage: "https://www.betterreading.com.au/wp-content/uploads/2017/12/Top-100-Books-9.png"}
+                ]
+            },
+            "Self-Help": {
+                genreTitle: "Self-Help",
+                genreText: "Self-help books are for anyone who wants to think better, feel better, and live better. They don't assume you're broken — they help you unlock your potential and live with confidence, peace, and purpose.",
+                books: [
+
+                    { title: "The 7 Habits of Highly Effective People", summary: "The 7 Habits of Highly Effective People by Stephen R. Covey outlines a character-based approach to personal and professional effectiveness, moving from dependence to independence and then to interdependence. ", coverImage: "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781471195709/the-7-habits-of-highly-effective-people-revised-and-updated-9781471195709_hr.jpg"},
+                    { title: "Atomic Habits", summary: "Atomic Habits by James Clear is a book that explains how tiny, consistent changes can lead to remarkable results by focusing on small habits that build over time. The core idea is to create a system for improvement rather than focusing on long-term goals, using the 'Four Laws of Behavior Change' to make good habits easy and bad habits difficult: make it obvious, make it attractive, make it easy, and make it satisfying.", coverImage: "https://i0.wp.com/freedom.to/blog/wp-content/uploads/2018/10/Atomic_Habits-2.png?fit=1024%2C1012&ssl=1"},
+                    { title: "The Power of Now", summary: "Eckhart Tolle's 'The Power of Now' is a spiritual guide that argues most human suffering comes from identifying with the mind, and true peace is found by living in the present moment, not dwelling on the past or future. The book encourages readers to observe their thoughts without judgment, accept the now, and recognize their true being beyond the ego. Key concepts include detaching from the 'pain-body' of accumulated past suffering and embracing acceptance as a path to inner peace", coverImage: "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/73f2a041-c41d-51b9-b3f8-8ad5d64581f8/577517f2-cf4e-5e58-926e-ff548673f607.jpg"},
+                    { title: "Think and Grow Rich", summary: "Napoleon Hill, then a young special investigator for a nationally known business magazine, was sent to interview Andrew Carnegie. During that interview, Carnegie slyly dropped a hint of a certain master power he used—a magic law of the human mind, a little-known psychological principle—that was amazing in its power. Carnegie suggested to Hill that upon that principle he could build the philosophy of all personal success—whether it be measured in terms of money, power, position, prestige, influence, or the accumulation of wealth. That part of the interview never made it into Hill’s magazine, but it did launch the young author on a research journey that lasted twenty years. Think and Grow Rich is the result of Hill’s study of over five hundred self-made millionaires—a condensed, accessible explanation of his Law of Success philosophy, which includes thirteen steps to riches (financial, emotional, and spiritual). ", coverImage: "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/7d2a38d1-e80f-5595-b85b-ec33654d7ddb/d1d3938e-c060-561f-b224-1e83e6d54654.jpg"},
+                    { title: "The Mountain Is You", summary: "The Mountain Is You is a self-help book by Brianna Wiest that explains how to overcome self-sabotage by using the metaphor of a 'mountain' representing internal obstacles formed by conflicting needs and past trauma. The book provides strategies for self-mastery, including identifying damaging behaviors, building emotional intelligence, and releasing trauma at a cellular level, ultimately guiding readers to transform self-sabotage into self-mastery.", coverImage: "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/249d20ae-51db-54fc-ab5a-e3b915d1fc98/9200bfce-2650-584d-b1f0-425fd368d7ca.jpg"}
+                ]
+            }
+        };
+       
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const genreLinks = document.querySelectorAll('.genre-link');
+            const dynamicArea = document.getElementById('dynamic-content-area');
+            const contentImage = document.getElementById('content-image');
+            const contentTitle = document.getElementById('content-title');
+            const contentText = document.getElementById('content-text');
+            const postListContainer = document.getElementById('post-list-container');
+            const mainSectionTitle = document.getElementById('main-section-title');
+            const defaultPostCards = document.querySelectorAll('.default-post-card');
+            const loadMoreButton = document.getElementById('load-more-button');
+
+            function renderBookList(genreName) {
+                const data = blogData[genreName];
+                let html = '<div class="space-y-4">'; 
+                
+                data.books.forEach(book => {
+                    
+                    html += `
+                        <div class="bg-white p-5 rounded-lg card-shadow">
+                            <a href="#" 
+                                data-book-title="${book.title}" 
+                                data-book-summary="${book.summary.replace(/"/g, '&quot;')}"
+                                data-book-image="${book.coverImage}"
+                                class="book-link text-2xl font-bold text-gray-900 hover:text-blue-600 block transition">
+                                ${book.title}
+                            </a>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+
+                
+                mainSectionTitle.textContent = `Browse ${genreName}`;
+                postListContainer.innerHTML = html;
+            }
+
+            function showBookSummary(bookTitle, summary, coverImage) {
+
+                contentImage.src = coverImage;
+                contentImage.alt = `${bookTitle} Cover`;
+                contentImage.classList.remove('hidden');
+
+                contentTitle.textContent = bookTitle;
+                contentText.textContent = summary;
+                
+                dynamicArea.classList.remove('hidden');
+                dynamicArea.classList.add('flex'); 
+
+                document.querySelectorAll('.book-link').forEach(l => l.classList.remove('selected-link'));
+                const selectedLink = document.querySelector(`.book-link[data-book-title="${bookTitle}"]`);
+                if (selectedLink) {
+                     selectedLink.classList.add('selected-link');
+                }
+            }
+
+            genreLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault(); 
+                    
+                    const fullText = link.textContent.trim();
+                    const genreName = fullText.replace(/\s*\(\d+\)/, '');
+
+                    defaultPostCards.forEach(card => card.classList.add('hidden'));
+                    loadMoreButton.classList.add('hidden');
+                    
+                    const genre = blogData[genreName];
+                    contentTitle.textContent = genre.genreTitle;
+                    contentText.textContent = genre.genreText;
+                    dynamicArea.classList.remove('hidden');
+                    dynamicArea.classList.remove('flex'); 
+                    contentImage.classList.add('hidden'); 
+
+                    genreLinks.forEach(l => l.classList.remove('selected-link'));
+                    link.classList.add('selected-link');
+
+                    renderBookList(genreName);
+
+                    postListContainer.removeEventListener('click', handleBookLinkClick);
+
+                    postListContainer.addEventListener('click', handleBookLinkClick);
+                    
+                    postListContainer.dataset.activeGenre = genreName; 
+
+                    dynamicArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+
+            function handleBookLinkClick(event) {
+                if (event.target.classList.contains('book-link')) {
+                    event.preventDefault();
+                    
+                    const bookTitle = event.target.dataset.bookTitle;
+                    const summary = event.target.dataset.bookSummary;
+                    const coverImage = event.target.dataset.bookImage;
+                    
+                    if (bookTitle && summary && coverImage) {
+                        showBookSummary(bookTitle, summary, coverImage);
+                    }
+                }
+            }
+
+            document.querySelector('a[href="#home"]').addEventListener('click', () => {
+                mainSectionTitle.textContent = 'Latest Reviews & Essays';
+                postListContainer.innerHTML = '';
+                defaultPostCards.forEach(card => card.classList.remove('hidden'));
+                loadMoreButton.classList.remove('hidden');
+                dynamicArea.classList.add('hidden');
+                dynamicArea.classList.remove('flex');
+
+                genreLinks.forEach(l => l.classList.remove('selected-link'));
+            });
+        });
+    </script>
+
+</body>
+</html>
