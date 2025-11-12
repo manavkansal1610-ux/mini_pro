@@ -252,7 +252,7 @@ def get_grouped_data():
 
 # --- Standard Flask Routes (Serving HTML) ---
 
-@app.route("/")
+@app.route("/users")
 def index():
     """Renders the main blog index page (placeholder)."""
     # NOTE: In a production environment, you would use "render_template("book_blog.html")".
